@@ -30,22 +30,29 @@ void cross_and_toe_display(){
 	char space = ' ';
 	for (int i = 0; i < 25; i++){ // отрисовка всех строк
 		for (int j = 0; j < 80; j++){ // отрисовка 1 строки
-			if (((i == (coor_bord_1 - 1) || i == coor_bord_1 || i == (coor_bord_1 + 1)) && j == 0) ||
-   			    ((i == (coor_bord_2 - 1) || i == coor_bord_2 || i == (coor_bord_2 + 1)) && j ==79)) printf("%c", platforma);
-			else printf("%c", space);		
+			// if (j == 0 || j == 79) printf("%c", platforma);
+			if (j == 0){ 
+				if (i == (coor_bord_1 - 1) || i == coor_bord_1 || i == (coor_bord_1 + 1)) printf("%c", platforma);
+				else printf("%c", space);
+			}
+			if (j == 79){
+				if (i == (coor_bord_2 - 1) || i == coor_bord_2 || i == (coor_bord_2 + 1)) printf("%c", platforma);
+				else printf("%c", space);
+			}
+			if (j != 0 || j != 79) printf("%c", space);		
 		}
 	}
 }
 
 void step_bord(char play) {
 	switch (play){ 
-    	case 'A': if  (coor_bord_1 >= 0 && coor_bord_1 <= 23)
+    	case 'A': if  (coor_bord_1 >= 3 && coor_bord_1 <= 21)
                 coor_bord_1 --; break;
-    	case 'Z': if  (coor_bord_1 >= 1 && coor_bord_1 <= 24)
+    	case 'Z': if  (coor_bord_1 >= 3 && coor_bord_1 <= 23)
                 coor_bord_1 ++; break;
-    	case 'K': if  (coor_bord_2 >= 0 && coor_bord_2 <= 23)
+    	case 'K': if  (coor_bord_2 >= 3 && coor_bord_2 <= 21)
                 coor_bord_2 --; break;
-    	case 'M': if  (coor_bord_2 >= 1 && coor_bord_2 <= 24)
+    	case 'M': if  (coor_bord_2 >= 3 && coor_bord_2 <= 23)
                 coor_bord_2 ++; break;
 	}
 	play = ' ';
