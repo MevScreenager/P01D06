@@ -6,6 +6,7 @@ int ball_direct = -1, x_ball = 18, y_ball = 0;
 void move_ball();
 int coor_bord_1 = 13;
 int coor_bord_2 = 13;
+int move_side = 1;	// 1 -> вправо 2 -> влево
 char play = ' ';
 
 int main() {
@@ -59,11 +60,25 @@ void step_bord(char play) {
 }
 
 void move_ball(){
+	if (x_ball == 78 && // мячик ударяется об правую ракетку
+			(y_ball == (coor_bord_2 - 1) || y_ball == coor_bord_2 || y_ball == (coor_bord_2 + 1))) move_side = 2; // <- влево
+	if (x_ball == 1 && // мячик ударяется об левую ракетку
+			(y_ball == (coor_bord_1 - 1) || y_ball == coor_bord_1 || y_ball == (coor_bord_1 + 1))) move_side = 1; // -> вправо
 	if (y_ball == 0 || (y_ball == (coor_bord_1 - 1) && x_ball == 1) || (y_ball == (coor_bord_2 - 1) && x_ball == 78)) ball_direct = -1;
 	if (y_ball == 24 || (y_ball == (coor_bord_1 + 1) && x_ball == 1) || (y_ball == (coor_bord_2 + 1) && x_ball == 78)) ball_direct = 1;
 	if ((y_ball == coor_bord_1 && x_ball == 1) || (y_ball == coor_bord_2 && x_ball == 78)) ball_direct = 0;
 
-	if (ball_direct == -1){}
-	if (ball_direct == 0){}
-	if (ball_direct == 1){}
+
+	// вправо ->
+	if (move_side){
+		if (ball_direct == -1 && y_ball != 24){
+			y_ball --;
+			x_ball ++;
+		}
+		if (ball_direct == 0) x_ball ++;
+		if (ball_direct == 1 && y_ball != 0){
+			y_ball ++;
+			x_ball ++;
+		}
+	}
 }
