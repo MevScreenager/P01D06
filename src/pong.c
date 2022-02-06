@@ -16,6 +16,12 @@ int main() {
 	move_ball();
 	step_bord(play);
 	printf("\n");
+
+	for (int i=1; i<=35; i++)
+	printf("%c", ' ');
+	printf("%d\t%d", count_1, count_2);
+	printf("\n");
+
 	cross_and_toe_display();
 
 	for (int i = 0; i < 80; i++) printf("_"); 
