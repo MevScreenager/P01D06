@@ -25,15 +25,20 @@ int main() {
 	cross_and_toe_display();
 
 	for (int i = 0; i < 80; i++) printf("_"); 
-	if (count_1 == 21 || count_2 == 21){
+	if (count_1 == 21){
 		printf("\n");
-		for (int i=1; i <= 25; i++) printf(" "); 
-	printf("Поздравляем с победой!");
+		for (int i=1; i <= 18; i++) printf(" "); 
+	printf("Поздравляем с победой игрок 1!");
+	return 0;
+	}
+	if (count_2 == 21){
+	printf("\n");
+	for (int i=1; i <= 18; i++) printf(" ");
+	printf("Поздравляем с победой игрок 2!");
 	return 0;
 	}
 	int time = getchar();
-	if (time != 10) play = (char) time; 
-	// scanf("%c", &play);
+	if (time != 10) play = (char) time;
 	}
 }
 
