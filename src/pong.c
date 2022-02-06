@@ -29,8 +29,8 @@ int main() {
 		printf("\n");
 		for (int i=1; i <= 25; i++) printf(" "); 
 	printf("Поздравляем с победой!");
+	return 0;
 	}
-	printf("x_ball:%d	y_ball:%d	move_side:%d	ball_direct:%d	cb_1:%d	cb_2:%d", x_ball, y_ball, move_side, ball_direct, coor_bord_1, coor_bord_2);
 	int time = getchar();
 	if (time != 10) play = (char) time; 
 	// scanf("%c", &play);
